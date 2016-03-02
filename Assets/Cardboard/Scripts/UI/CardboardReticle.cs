@@ -92,7 +92,9 @@ public class CardboardReticle : MonoBehaviour, ICardboardPointer {
   /// point of the ray sent from the camera on the object.
   public void OnGazeStart(Camera camera, GameObject targetObject, Vector3 intersectionPosition) {
     SetGazeTarget(intersectionPosition);
-  }
+        MeshRenderer rend = targetObject.GetComponent<MeshRenderer>();
+        rend.enabled = true;
+    }
 
   /// Called every frame the user is still looking at a valid GameObject. This
   /// can be a 3D or UI element.
@@ -115,7 +117,9 @@ public class CardboardReticle : MonoBehaviour, ICardboardPointer {
     reticleDistanceInMeters = kReticleDistanceMax;
     reticleInnerAngle = kReticleMinInnerAngle;
     reticleOuterAngle = kReticleMinOuterAngle;
-  }
+        MeshRenderer rend = targetObject.GetComponent<MeshRenderer>();
+        rend.enabled = false;
+    }
 
   /// Called when the Cardboard trigger is initiated. This is practically when
   /// the user begins pressing the trigger.
