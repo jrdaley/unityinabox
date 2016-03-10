@@ -29,6 +29,8 @@ public class CardboardReticle : MonoBehaviour, ICardboardPointer {
   private Material materialComp;
   private GameObject targetObj;
 
+  private bool classroom = true;
+
   // Current inner angle of the reticle (in degrees).
   private float reticleInnerAngle = 0.0f;
   // Current outer angle of the reticle (in degrees).
@@ -131,6 +133,18 @@ public class CardboardReticle : MonoBehaviour, ICardboardPointer {
   /// the user releases the trigger.
   public void OnGazeTriggerEnd(Camera camera) {
     // Put your reticle trigger end logic here :)
+    /*if (classroom)
+        {
+            Camera.main.transform.position = new Vector3(100, 0, 0);
+            classroom = false;
+        }
+    else
+        {
+            Camera.main.transform.position = new Vector3(0, 0, 0);
+            classroom = true;
+        }
+     
+     */
   }
 
   private void CreateReticleVertices() {
